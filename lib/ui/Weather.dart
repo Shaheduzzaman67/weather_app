@@ -54,7 +54,29 @@ class Weather extends StatelessWidget {
     ),
   );
 
-  
+  Widget descriptionSection = Container(
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          "Dhaka",
+          style: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.white
+          ),
+        ),
+        Text(
+          "Cloudy",
+          style: TextStyle(
+            fontSize: 24.0,
+            color: Colors.white
+          ),
+        ),
+      ],
+    ),
+  );
 
 
   Widget build(BuildContext context) {
@@ -64,7 +86,8 @@ class Weather extends StatelessWidget {
        crossAxisAlignment: CrossAxisAlignment.start,
        children: <Widget>[
          date,
-         tempSection
+         tempSection,
+         descriptionSection
        ],
      ),
     );
