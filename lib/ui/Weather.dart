@@ -3,6 +3,8 @@ import 'package:intl/intl.dart';
 
 
 class Weather extends StatelessWidget {
+
+
   Widget date = Container(
     child: Text(
       DateFormat("MMMM d, H:m").format(DateTime.now()),
@@ -14,13 +16,55 @@ class Weather extends StatelessWidget {
 
     ),
   );
+
+  Widget tempSection = Container(
+    padding: EdgeInsets.symmetric(
+      vertical: 10.0,
+    ),
+    child: Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          "20",
+          style: TextStyle(
+            fontSize: 60.0,
+          ),
+        ),
+        Expanded(child: Container(
+          padding: EdgeInsets.only(
+            top: 12.0,
+          ),
+          margin: EdgeInsets.only(
+            left: 6.0,
+          ),
+          child: Text(
+            "\u2103",
+            style: TextStyle(
+              fontSize: 24.0
+            ),
+          ),
+        ),),
+        Image.asset(
+          "assets/img/cloudy.png",
+          width: 100.00,
+          height: 100.00,
+          fit: BoxFit.cover,
+        )
+      ],
+    ),
+  );
+
+  
+
+
   Widget build(BuildContext context) {
     return Container(
      padding: const EdgeInsets.all(50.0),
      child: Column(
        crossAxisAlignment: CrossAxisAlignment.start,
        children: <Widget>[
-         date
+         date,
+         tempSection
        ],
      ),
     );
