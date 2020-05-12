@@ -1,8 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:weather_app/model/WeatherData.dart';
+
 
 
 class Weather extends StatelessWidget {
+
+  final WeatherData weatherData;
+  Weather({@required this.weatherData});
+
+  @override
+  Widget build(BuildContext context) {
+    
+  
 
 
   Widget date = Container(
@@ -25,7 +35,7 @@ class Weather extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          "20",
+          weatherData.temp.toStringAsFixed(0),
           style: TextStyle(
             fontSize: 60.0,
           ),
@@ -44,10 +54,10 @@ class Weather extends StatelessWidget {
             ),
           ),
         ),),
-        Image.asset(
-          "assets/img/cloudy.png",
-          width: 100.00,
-          height: 100.00,
+        Image.network(
+          'https://openweathermap.org/img/w/${weatherData.icon}.png',
+          width: 100.0,
+          height: 100.0,
           fit: BoxFit.cover,
         )
       ],
@@ -60,7 +70,7 @@ class Weather extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          "Dhaka",
+          weatherData.name,
           style: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
@@ -68,7 +78,7 @@ class Weather extends StatelessWidget {
           ),
         ),
         Text(
-          "Cloudy",
+          weatherData.main,
           style: TextStyle(
             fontSize: 24.0,
             color: Colors.white
@@ -77,9 +87,8 @@ class Weather extends StatelessWidget {
       ],
     ),
   );
+  
 
-
-  Widget build(BuildContext context) {
     return Container(
      padding: const EdgeInsets.all(50.0),
      child: Column(
@@ -93,3 +102,5 @@ class Weather extends StatelessWidget {
     );
   }
 }
+
+
