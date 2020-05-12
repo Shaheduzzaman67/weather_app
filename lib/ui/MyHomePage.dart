@@ -32,23 +32,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-
+        backgroundColor: Colors.transparent,
         title: Text(widget.title),
       ),
       body: _weatherData !=null ? Weather(weatherData: _weatherData):
       Center(
         child: CircularProgressIndicator(
           strokeWidth: 4.0,
-          valueColor: AlwaysStoppedAnimation(Colors.white),
+          valueColor: AlwaysStoppedAnimation(Colors.tealAccent),
         ),
       ),
-      backgroundColor: Colors.blueAccent,
+      backgroundColor: Colors.lightBlue,
 
     );
   }
 
   getCurrentLocation(){
-    loadWeather(lat: 23.8103, lon: 90.4125);
+    loadWeather(lat: 23.77, lon: 90.39);
 
   }
 
